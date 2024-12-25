@@ -1,5 +1,7 @@
 <?php
-
+  $env = file_get_contents('.env');
+  preg_match('/API_KEY=(.+)/', $env, $matches);
+  $apiKey = trim($matches[1]);
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,7 +20,7 @@
     <div id='likes'></div>
     <div id="street-view" style="height: 92vh; width: 100%;"></div>
     
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOvbdsupLcLvGbop0gQ1apmHS3xQ79bWs&callback=initMap&loading=async" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apiKey ?>&callback=initMap&loading=async" defer></script>
 
     <script src="script.js"></script>
   </body>
